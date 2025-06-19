@@ -1,0 +1,5 @@
+.vagrant
+shared/*
+.vscode
+.idea
+.env
