@@ -17,9 +17,9 @@ sudo pacman -Syu --noconfirm
 sudo pacman -S --needed --noconfirm git base-devel
 
 # yay install
-git clone https://aur.archlinux.org/yay-bin.git
-chmod 777 -R yay-bin
-cd yay-bin && makepkg -si --noconfirm
+git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin
+chmod 777 -R /tmp/yay-bin
+cd /tmp/yay-bin && makepkg -si --noconfirm
 
 # Install packages using yay
 # Yay is slow so we use it only for required packages
@@ -38,7 +38,8 @@ sudo pacman -Sy --noconfirm \
             xorg \
             zellij \
             docker \
-            docker-compose
+            docker-compose \
+            xterm
 
 # Config zellij multiplexer
 echo 'if [ -z "$ZELLIJ" ]; then zellij; fi' >> /home/vagrant/.bashrc
@@ -46,3 +47,6 @@ echo 'if [ -z "$ZELLIJ" ]; then zellij; fi' >> /home/vagrant/.bashrc
 # Set SSH X11Forwarding
 sudo sed -i 's/#X11Forwarding no/X11Forwarding yes/' /etc/ssh/sshd_config
 sudo systemctl restart sshd
+
+# Add vagrant user to docker group
+sudo usermod -aG docker vagrant

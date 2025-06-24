@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
             nodeconfig.vm.network "private_network", ip: node[:ip]
             nodeconfig.ssh.insert_key = false
 
-            nodeconfig.vm.synced_folder ".", "/shared", type: "virtualbox"
+            nodeconfig.vm.synced_folder ".", "/vagrant", type: "virtualbox"
 
             # Execute VM Setup script
             nodeconfig.vm.provision "shell", path: "./VMSetup.sh", privileged: false
