@@ -31,6 +31,12 @@ yay -S --noconfirm \
         gns3-server \
         gns3-gui
 
+# Fonts packages
+yay -S --noconfirm \
+        opendesktop-fonts ttf-dejavu ttf-freefont ttf-junicode ttf-linux-libertine ttf-droid ttf-gentium \
+        ttf-inconsolata ttf-ubuntu-font-family freetype2 gsfonts xorg-fonts-type1 font-mathematica profont \
+        terminus-font adobe-base-14-fonts
+
 sudo pacman -Sy --noconfirm \
             libvirt \
             inetutils \
@@ -39,7 +45,7 @@ sudo pacman -Sy --noconfirm \
             zellij \
             docker \
             docker-compose \
-            xterm
+            xterm \
 
 # Config zellij multiplexer
 echo 'if [ -z "$ZELLIJ" ]; then zellij; fi' >> /home/vagrant/.bashrc
@@ -50,3 +56,8 @@ sudo systemctl restart sshd
 
 # Add vagrant user to docker group
 sudo usermod -aG docker vagrant
+
+#Set XTerm font
+sudo mkdir -p /etc/X11/app-defaults
+echo '*faceName: Source Code
+*faceSize: 12' | sudo tee /etc/X11/app-defaults/XTerm
