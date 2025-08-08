@@ -1,7 +1,7 @@
 username = `whoami`.strip
 
 nodes = [
-    { :hostname => username + 'VM', :ip => '192.168.56.110'},
+    { :hostname => username + 'VMgthf', :ip => '192.168.56.110'},
 ]
 
 Vagrant.configure("2") do |config|
@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
             nodeconfig.vm.network "private_network", ip: node[:ip]
             nodeconfig.ssh.insert_key = false
 
-            nodeconfig.vm.synced_folder ".", "/vagrant", type: "virtualbox"
+            nodeconfig.vm.synced_folder ".", "/home/vagrant/shared", type: "virtualbox"
 
             # Execute VM Setup script
             nodeconfig.vm.provision "shell", path: "./VMSetup.sh", privileged: false

@@ -3,7 +3,7 @@ Requirements:
 * Vagrant
 * VirtualBox
 
----
+--------------------------------------------------------------------
 
 Use:
 
@@ -16,7 +16,7 @@ To change the VDI default location set:
 
 `VBoxManage setproperty machinefolder "<new_path>"`
 
----
+---------------------------------------------------------------------
 
 Details:
 
@@ -30,3 +30,7 @@ Details:
   * 128 MB VRam
 
 Feel free to Fork and change `VMSetup.sh` as your wish
+
+----------------------------------------------------------------------
+Merci au [nain druide hibours sage](https://github.com/drogonj)
+

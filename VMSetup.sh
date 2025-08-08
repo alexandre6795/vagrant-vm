@@ -54,8 +54,17 @@ echo 'if [ -z "$ZELLIJ" ]; then zellij; fi' >> /home/vagrant/.bashrc
 sudo sed -i 's/#X11Forwarding no/X11Forwarding yes/' /etc/ssh/sshd_config
 sudo systemctl restart sshd
 
+# Enable and start docker service
+sudo systemctl start docker.service
+sudo systemctl enable docker.service
+
 # Add vagrant user to docker group
 sudo usermod -aG docker vagrant
+
+#message for don't forget make
+echo Don t forget to run make
+echo command is "make -C /home/vagrant/shared/ex"
+
 
 #Set XTerm font
 sudo mkdir -p /etc/X11/app-defaults
