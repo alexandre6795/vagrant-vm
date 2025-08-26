@@ -12,6 +12,7 @@ sudo sed -i 's/#Color/Color/' /etc/pacman.conf
 
 # pacman update and upgrade
 sudo pacman -Sy --noconfirm archlinux-keyring
+
 sudo pacman -Syu --noconfirm
 
 sudo pacman -S --needed --noconfirm git base-devel
